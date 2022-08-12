@@ -25,7 +25,7 @@ public class PlayButtonScript : MonoBehaviour {
     if (timer > 0) { 
       timer -= Time.deltaTime;
       ratio = timer / maxTime;
-      startButtonImage.color.a = ratio;
+      //startButtonImage.color.a = ratio;
     }
 
 
