@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(BoxCollider2D))]
 
 public class Drag : MonoBehaviour
 {
@@ -18,7 +18,7 @@ public class Drag : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
  
     void OnMouseDown()
