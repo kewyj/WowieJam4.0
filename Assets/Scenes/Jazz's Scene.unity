@@ -570,8 +570,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 348466777}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -4.78, z: 0}
-  m_LocalScale: {x: 22.838474, y: 1, z: 1}
+  m_LocalPosition: {x: 7, y: -440, z: 0}
+  m_LocalScale: {x: 1670.9542, y: 73.164, z: 73.164}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -673,7 +673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 1
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 960, y: 540}
   m_ScreenMatchMode: 0
@@ -1320,8 +1320,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495167348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.8, y: 1.66, z: 0}
-  m_LocalScale: {x: 1.8677089, y: 1.8677089, z: 1.8677089}
+  m_LocalPosition: {x: -569, y: -159, z: 0}
+  m_LocalScale: {x: 159.75636, y: 159.75636, z: 159.75636}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1342,7 +1342,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 30
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
