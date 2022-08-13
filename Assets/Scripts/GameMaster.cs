@@ -10,6 +10,7 @@ public class GameMaster : MonoBehaviour {
   // Start is called before the first frame update
   void Start() {
     sceneChanger = new SceneChanger();
+    helper = new Helper();
   }
 
   // Update is called once per frame
@@ -41,8 +42,5 @@ public class Helper {
 
   public float Abs(float num) {
     return num < 0 ? -num : num;
-  }
-  public void ChangeAlpha(ref GameObject go, float alpha) {
-
   }
 }

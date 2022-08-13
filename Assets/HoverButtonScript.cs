@@ -1,6 +1,6 @@
-using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 using UnityEngine;
 
 public class HoverButtonScript : MonoBehaviour {
@@ -12,16 +12,22 @@ public class HoverButtonScript : MonoBehaviour {
 
   // Update is called once per frame
   void Update() {
-    if (IsMouseOverUI()) {
-      gameObject.GetComponent<Animator>().Play("ButtonBreathingAnimation");
-    } else {
-      gameObject.GetComponent<Animator>().Play("NotBreathingAnimation");
-    }
 
   }
 
-  private bool IsMouseOverUI() {
-    return EventSystem.current.IsPointerOverGameObject();
+  public void OnMouseEnter() {
+    print("hovering");
+    gameObject.GetComponent<Animator>().Play("ButtonBreathingAnimation");
+  }
+
+  public void OnMouseOver() {
+    print("mouseover");
+    gameObject.GetComponent<Animator>().Play("ButtonBreathingAnimation");
+  }
+
+  public void OnMouseExit() {
+    print("not hovering");
+    gameObject.GetComponent<Animator>().Play("NotBreathingAnimation");
   }
 
 }

@@ -21,7 +21,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 4.1142373, y: 4.1142373, z: 1}
+        value: {x: 127.61, y: 127.61, z: 127.61}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -75,7 +75,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 4.1142373
+        value: 127.61
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -87,14 +87,14 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: m_LocalScale.x
     path: 
-    classID: 224
+    classID: 4
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 4.1142373
+        value: 127.61
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -106,14 +106,14 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: m_LocalScale.y
     path: 
-    classID: 224
+    classID: 4
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 127.61
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -125,7 +125,7 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: m_LocalScale.z
     path: 
-    classID: 224
+    classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
