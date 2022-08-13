@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GenerateParallax : MonoBehaviour
 {
+    public float backgroundSpeed;
+    public float middlegroundSpeed;
+    public float foregroundSpeed;
     // Start is called before the first frame update
     [SerializeField]
     GameObject background;
@@ -19,8 +22,6 @@ public class GenerateParallax : MonoBehaviour
     private GameObject rightMid;
     private GameObject rightFore;
 
-    private float prevPos;
-
     void Start()
     {
         leftBack = Instantiate(background, new Vector3(0, 0, 0), Quaternion.identity);
@@ -30,13 +31,25 @@ public class GenerateParallax : MonoBehaviour
         rightMid = Instantiate(middleground, new Vector3(1920, 0, 0), Quaternion.identity);
         rightFore = Instantiate(foreground, new Vector3(1920, 0, 0), Quaternion.identity);
 
-        leftBack.GetComponent<ParallaxMovement>().speed = rightBack.GetComponent<ParallaxMovement>().speed = 500;
-        leftMid.GetComponent<ParallaxMovement>().speed = rightMid.GetComponent<ParallaxMovement>().speed = 800;
-        leftFore.GetComponent<ParallaxMovement>().speed = rightFore.GetComponent<ParallaxMovement>().speed = 1100;
+        leftBack.GetComponent<ParallaxMovement>().speed = rightBack.GetComponent<ParallaxMovement>().speed = backgroundSpeed;
+        leftMid.GetComponent<ParallaxMovement>().speed = rightMid.GetComponent<ParallaxMovement>().speed = middlegroundSpeed;
+        leftFore.GetComponent<ParallaxMovement>().speed = rightFore.GetComponent<ParallaxMovement>().speed = foregroundSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
+    }
+
+    public void SpeedUp(float multiplier)
+    {
+        backgroundSpeed *= multiplier;
+        middlegroundSpeed *= multiplier;
+        foregroundSpeed *= multiplier;
+
+        foreach (ParallaxMovement gOb in FindObjectsOfType<ParallaxMovement>())
+        {
+            gOb.speed *= multiplier;
+        }
     }
 }

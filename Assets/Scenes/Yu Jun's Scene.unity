@@ -123,6 +123,67 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &457264506
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1017156345634129307, guid: 4fd1d8afd840e0c478c07d470d86a833, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017156345634129307, guid: 4fd1d8afd840e0c478c07d470d86a833, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017156345634129307, guid: 4fd1d8afd840e0c478c07d470d86a833, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017156345634129307, guid: 4fd1d8afd840e0c478c07d470d86a833, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -72
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017156345634129307, guid: 4fd1d8afd840e0c478c07d470d86a833, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017156345634129307, guid: 4fd1d8afd840e0c478c07d470d86a833, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017156345634129307, guid: 4fd1d8afd840e0c478c07d470d86a833, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017156345634129307, guid: 4fd1d8afd840e0c478c07d470d86a833, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017156345634129307, guid: 4fd1d8afd840e0c478c07d470d86a833, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017156345634129307, guid: 4fd1d8afd840e0c478c07d470d86a833, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017156345634129307, guid: 4fd1d8afd840e0c478c07d470d86a833, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017156345634129307, guid: 4fd1d8afd840e0c478c07d470d86a833, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017156345634129309, guid: 4fd1d8afd840e0c478c07d470d86a833, type: 3}
+      propertyPath: m_Name
+      value: Floor2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4fd1d8afd840e0c478c07d470d86a833, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1307527914}
+  - component: {fileID: 1307527915}
   m_Layer: 0
   m_Name: Generator Controller
   m_TagString: Untagged
@@ -236,8 +298,24 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1307527915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307527913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 258b69c6ba90d4049b4bff9f331f37bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformGenerator: {fileID: 1760527795}
+  parallaxGenerator: {fileID: 1941495904}
+  speedIncrease: 1.005
+  timeInterval: 30
 --- !u!1 &1760527795
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +346,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1760527797
 MonoBehaviour:
@@ -282,14 +360,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 011d65a3652679f41ae8951da41a2c80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floor1: {fileID: 5164229691114248916, guid: 7b65c306f5d0ada4498242ea9ad94494, type: 3}
-  floor2: {fileID: 3727426911959504282, guid: 18a6cf0d414f8d948ac152c883fe70bf, type: 3}
-  floor3: {fileID: 6444566434922592300, guid: 529dfbcbc5a2d86469f461a1a5197dec, type: 3}
-  floor4: {fileID: 1681013649629475225, guid: c0509e01919af3943ac97d1e129c99f3, type: 3}
-  floor5: {fileID: 4786786916260498259, guid: f81452c688af8c047ab1996a43b17de1, type: 3}
-  jump: {fileID: 6211560375390218495, guid: 9532ae9e78d71f74c97700d593c82eb2, type: 3}
-  canon: {fileID: 4003824102983553447, guid: a05e07908d156dd4588256c5a1a2914c, type: 3}
-  distance: 0
+  platformSpeed: 500
+  pitfallLength: 300
+  floor1: {fileID: 5595478807189714137, guid: 9049175eb71f10344967b38821a229eb, type: 3}
+  floor2: {fileID: 1017156345634129309, guid: 4fd1d8afd840e0c478c07d470d86a833, type: 3}
+  floor3: {fileID: 6157892549140029239, guid: 22af98d5fc616e4418822f8ce27aa525, type: 3}
+  floor4: {fileID: 5873355391199439633, guid: 63351b423ca176142824f1f5d816e0bc, type: 3}
+  floor5: {fileID: 8806709861236758910, guid: a2110d6c8eccb854e9e715b8ef2f2ad5, type: 3}
+  jump: {fileID: 2532861687112800312, guid: b9bef2981bd13a649b276a451891487a, type: 3}
+  canon: {fileID: 6379022156996354971, guid: 43de58099b7c2e84ebfe681f90dbc8bb, type: 3}
 --- !u!1 &1941495904
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +399,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1941495906
 MonoBehaviour:
@@ -334,6 +413,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2c366245c4e01a42b17a0ac2c72c477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backgroundSpeed: 50
+  middlegroundSpeed: 200
+  foregroundSpeed: 250
   background: {fileID: 8368012112992427861, guid: 93fbf0a9c6d890a42988f3dbe26b11e8, type: 3}
   middleground: {fileID: 113765770697247760, guid: 65a2c24cb91b5ca4eab18c699f9bda7a, type: 3}
   foreground: {fileID: 6777397074536523624, guid: 0f82bd0cb82222e44a3cd630bb238a4e, type: 3}

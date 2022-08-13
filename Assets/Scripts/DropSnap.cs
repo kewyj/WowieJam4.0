@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class DropSnap : MonoBehaviour
 {
-    private bool snapped = false;
+    private bool allowSnap = true;
     private GameObject DropItem;
 
     // Start is called before the first frame update
@@ -19,13 +19,13 @@ public class DropSnap : MonoBehaviour
     void Update()
     {
         if (DropItem == null) return;
-        if (DropItem.GetComponent<DragSnap>().snapped == true)
-            snapped = true;
+        if (DropItem.GetComponent<DragSnap>().allowSnap == false)
+            allowSnap = false;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (snapped == true) return;
+        if (allowSnap == false) return;
 
         DropItem = collision.gameObject;
         DropItem.GetComponent<DragSnap>().snapItem = true;
