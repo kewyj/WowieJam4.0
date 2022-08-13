@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(BoxCollider2D))]
 
 public class DragSnap : MonoBehaviour
 {
@@ -11,12 +11,13 @@ public class DragSnap : MonoBehaviour
     private Vector3 offset;
     public Vector3 snapTo;
     public bool snapItem = false;
+    public bool snapped = false;
 
     // Start is called before the first frame update
     void Start()
     {
         initial = gameObject.transform.position;
-        GetComponent<Rigidbody>().freezeRotation = true;
+        GetComponent<Rigidbody2D>().freezeRotation = true;
     }
 
     // Update is called once per frame
@@ -44,9 +45,11 @@ public class DragSnap : MonoBehaviour
 
         if (snapItem == true)
         {
-            Destroy(GetComponent<Rigidbody>());
-            //gameObject.SetActive(false);
+            Destroy(GetComponent<Rigidbody2D>());
             gameObject.transform.position = snapTo;
+            //gameObject.SetActive(false);
+
+            snapped = true;
         }
         else
         {
