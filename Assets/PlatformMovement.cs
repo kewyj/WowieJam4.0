@@ -9,14 +9,13 @@ public class PlatformMovement : MonoBehaviour
 
     void Start()
     {
-        speed = 1400;
     }
 
     // Update is called once per frame
     void Update()
     { 
         transform.Translate(-Time.deltaTime * speed, 0, 0);
-        if (transform.position.x < -960 - transform.localScale.x / 2.0f - 100.0f)
+        if (transform.position.x < -960 - transform.localScale.x * 15.0f - 100.0f)
             Destroy(gameObject);
     }
 }
