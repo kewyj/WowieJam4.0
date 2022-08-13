@@ -32,7 +32,7 @@ public class GeneratePlatform : MonoBehaviour
     void Start()
     {
         floor = Instantiate(floor5, new Vector3(0, -600, 0), Quaternion.identity);
-        distance = -floor.transform.localScale.x * 15.0f + 960;
+        distance = -floor.transform.localScale.x * 45.714f + 960;
         floor.GetComponent<PlatformMovement>().speed = platformSpeed;
     }
 
@@ -62,34 +62,34 @@ public class GeneratePlatform : MonoBehaviour
                     tempFloor = floor5;
                     break;
             }
-            floor = Instantiate(tempFloor, new Vector3(960 + tempFloor.transform.localScale.x * 15.0f, -600, 0), Quaternion.identity);
+            floor = Instantiate(tempFloor, new Vector3(960 + tempFloor.transform.localScale.x * 45.714f, -600, 0), Quaternion.identity);
             floor.GetComponent<PlatformMovement>().speed = platformSpeed;
-            distance = -floor.transform.localScale.x * 30.0f;
+            distance = -floor.transform.localScale.x * 91.4285f;
 
             if (Random.Range(0,2) == 1 && temp == 5)
             {
-                spikeStrip = Instantiate(canon, new Vector3(Random.Range(460 + tempFloor.transform.localScale.x * 15.0f, 
-                    1360 + tempFloor.transform.localScale.x * 15.0f), -402, 0), Quaternion.identity);
+                spikeStrip = Instantiate(canon, new Vector3(Random.Range(460 + tempFloor.transform.localScale.x * 45.714f, 
+                    1360 + tempFloor.transform.localScale.x * 45.714f), -252, 0), Quaternion.identity);
                 spikeStrip.GetComponent<PlatformMovement>().speed = platformSpeed;
             }
             else
             {
                 if (temp == 4 || temp == 5)
                 {
-                    roof = Instantiate(jump, new Vector3(960 + tempFloor.transform.localScale.x * 15.0f +
-                        Random.Range(-tempFloor.transform.localScale.x * 15.0f + 240 + pitfallLength, 0 - 480), -385, 0),
+                    roof = Instantiate(jump, new Vector3(960 + tempFloor.transform.localScale.x * 45.714f +
+                        Random.Range(-tempFloor.transform.localScale.x * 45.714f + 240 + pitfallLength, 0 - 480), -235, 0),
                         Quaternion.identity);
                     roof.GetComponent<PlatformMovement>().speed = platformSpeed;
 
-                    roof = Instantiate(jump, new Vector3(960 + tempFloor.transform.localScale.x * 15.0f + 
-                        Random.Range(0 + 480, tempFloor.transform.localScale.x * 15.0f - 240 - pitfallLength), -385, 0), 
+                    roof = Instantiate(jump, new Vector3(960 + tempFloor.transform.localScale.x * 45.714f + 
+                        Random.Range(0 + 480, tempFloor.transform.localScale.x * 45.714f - 240 - pitfallLength), -235, 0), 
                         Quaternion.identity);
                     roof.GetComponent<PlatformMovement>().speed = platformSpeed;
                 }
                 else
                 {
-                    roof = Instantiate(jump, new Vector3(960 + tempFloor.transform.localScale.x * 15.0f + 
-                        Random.Range(-tempFloor.transform.localScale.x * 15.0f + 240 + pitfallLength, tempFloor.transform.localScale.x * 15.0f - 240 - pitfallLength), -385, 0), 
+                    roof = Instantiate(jump, new Vector3(960 + tempFloor.transform.localScale.x * 45.714f + 
+                        Random.Range(-tempFloor.transform.localScale.x * 45.714f + 240 + pitfallLength, tempFloor.transform.localScale.x * 45.714f - 240 - pitfallLength), -235, 0), 
                         Quaternion.identity);
                     roof.GetComponent<PlatformMovement>().speed = platformSpeed;
                 }

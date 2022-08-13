@@ -15,7 +15,7 @@ public class PlatformMovement : MonoBehaviour
     void Update()
     { 
         transform.Translate(-Time.deltaTime * speed, 0, 0);
-        if (transform.position.x < -960 - transform.localScale.x * 15.0f - 100.0f)
+        if (transform.position.x < -4000)
             Destroy(gameObject);
     }
 }
