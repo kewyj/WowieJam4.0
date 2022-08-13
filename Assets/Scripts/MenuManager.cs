@@ -8,18 +8,26 @@ public class MenuManager : MonoBehaviour {
   public GameObject pauseButton;
   public GameObject restartButton;
   public GameObject helpButton;
+  public GameObject nextHelpButton;
+  public GameObject prevHelpButton;
+  public GameObject exitHelpButton;
   public GameObject pauseCenter;
   public GameObject blackScreen;
+  public GameObject[] helpScreens;
 
   public UnityEngine.UI.Image startButtonImage;
   public UnityEngine.UI.Image pauseButtonImage;
   public UnityEngine.UI.Image restartButtonImage;
   public SpriteRenderer blackScreenImage;
 
-  private float ratio;
   private float timer;
   private float maxTime;
   private bool paused;
+  private bool restarting;
+  private float restartTimer;
+  private float maxRestartTimer;
+  private bool restartFlip;
+  private int helpIndex;
 
   // Start is called before the first frame update
   void Start() {
@@ -29,13 +37,20 @@ public class MenuManager : MonoBehaviour {
     helpButton = GameObject.Find("HelpButton");
     pauseCenter = GameObject.Find("PauseCenter");
     blackScreen = GameObject.Find("BlackScreen");
+    nextHelpButton = GameObject.Find("NextHelpButton");
+    prevHelpButton = GameObject.Find("PrevHelpButton");
+    exitHelpButton = GameObject.Find("ExitHelpButton");
 
     startButtonImage = startButton.GetComponent<UnityEngine.UI.Image>();
     pauseButtonImage = pauseButton.GetComponent<UnityEngine.UI.Image>();
     restartButtonImage = restartButton.GetComponent<UnityEngine.UI.Image>();
     blackScreenImage = blackScreen.GetComponent<SpriteRenderer>();
 
+    blackScreen.SetActive(false);
+
     RestartMenu();
+    restartTimer = 0;
+    maxRestartTimer = 1;
     maxTime = 2;
   }
   // Update is called once per frame
@@ -48,7 +63,7 @@ public class MenuManager : MonoBehaviour {
         timer = 0;
         startButton.SetActive(false);
       }
-      ratio = timer / maxTime;
+      float ratio = timer / maxTime;
 
       Color temp = startButton.GetComponent<UnityEngine.UI.Image>().color;
       startButton.GetComponent<UnityEngine.UI.Image>().color = new Color(temp.r, temp.g, temp.b, ratio);
@@ -65,6 +80,28 @@ public class MenuManager : MonoBehaviour {
       restartButton.SetActive(true);
       blackScreen.SetActive(false);
       pauseCenter.SetActive(false);
+
+    }
+
+    if (restartTimer > 0) {
+      restartTimer -= Time.deltaTime;
+      if (restartTimer < 0) restartTimer = 0;
+      float ratio = restartTimer / maxRestartTimer;
+
+      if (restartFlip) {
+        // Lighting back up
+        blackScreenImage.color = new Color(0, 0, 0, ratio);
+
+      } else {
+        // Dimming down
+        blackScreenImage.color = new Color(0, 0, 0, 1-ratio);
+
+        if (restartTimer == 0) {
+          restartTimer = maxRestartTimer;
+          restartFlip = true;
+          RestartMenu();
+        }
+      }
 
     }
 
@@ -102,20 +139,61 @@ public class MenuManager : MonoBehaviour {
     pauseButton.SetActive(false);
     restartButton.SetActive(false);
     pauseCenter.SetActive(false);
-    blackScreen.SetActive(false);
+    nextHelpButton.SetActive(false);
+    prevHelpButton.SetActive(false);
+    exitHelpButton.SetActive(false);
 
-    pauseCenter.SetActive(false);
-
-    ratio = 0;
     timer = 0;
+    helpIndex = 0;
   }
 
   public void OnRestartClick() {
-    RestartMenu();
+    restartTimer = maxRestartTimer;
+    restartFlip = false;
+    blackScreen.SetActive(true);
   }
 
   public void OnHelpClick() {
+    helpIndex = 1;
+    startButton.SetActive(false);
+    helpButton.SetActive(false);
+    nextHelpButton.SetActive(true);
+    exitHelpButton.SetActive(true);
+    blackScreen.SetActive(true);
+    blackScreenImage.color = new Color(0, 0, 0, 0.5f);
+    ChangeHelpScene(helpIndex);
+  }
 
+  public void OnNextHelpClick() {
+    if (++helpIndex == helpScreens.Length) nextHelpButton.SetActive(false);
+    prevHelpButton.SetActive(true);
+
+    ChangeHelpScene(helpIndex);
+  }
+
+  public void OnPrevHelpClick() {
+    if (--helpIndex == 1) prevHelpButton.SetActive(false);
+    nextHelpButton.SetActive(true);
+
+    ChangeHelpScene(helpIndex);
+  }
+
+  public void OnExitHelpClick() {
+    helpScreens[helpIndex-1].SetActive(false);
+    nextHelpButton.SetActive(false);
+    prevHelpButton.SetActive(false);
+    exitHelpButton.SetActive(false);
+    blackScreen.SetActive(false);
+
+    startButton.SetActive(true);
+    helpButton.SetActive(true);
+  }
+
+  public void ChangeHelpScene(int index) {
+    for (int i = 0; i < helpScreens.Length; ++i) {
+      if (i + 1 == index) helpScreens[i].SetActive(true);
+      else helpScreens[i].SetActive(false);
+    }
   }
 
 }
