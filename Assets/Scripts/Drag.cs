@@ -25,6 +25,7 @@ public class Drag : MonoBehaviour
  
     void OnMouseDown()
     {
+        Debug.Log("clicked");
         offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
         Cursor.visible = false;
     }
@@ -41,6 +42,11 @@ public class Drag : MonoBehaviour
         if (placeItem == true)
         {
             gameObject.transform.position = new Vector3(gameObject.transform.position.x, placeAt, 0);
+            if (gameObject.tag == "Jump")
+                gameObject.GetComponent<Jumppad>().isPlaced = true;
+            else if (gameObject.tag == "Cannon")
+                gameObject.GetComponent<Cannon>().isPlaced = true;
+
         }
         else
         {
@@ -53,7 +59,7 @@ public class Drag : MonoBehaviour
         GameObject CollisionItem = collision.gameObject;
         if (CollisionItem.tag == "Platform"){
             placeItem = true;
-            placeAt = (CollisionItem.transform.position.y - (CollisionItem.transform.localScale.y / 2)) + (gameObject.transform.localScale.y / 2);
+            placeAt = CollisionItem.transform.position.y + CollisionItem.transform.localScale.y * 20 - (gameObject.transform.localScale.y * 0.25f);
         };
     }
 

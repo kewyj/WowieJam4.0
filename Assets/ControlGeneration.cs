@@ -8,6 +8,8 @@ public class ControlGeneration : MonoBehaviour
     GameObject platformGenerator;
     [SerializeField]
     GameObject parallaxGenerator;
+    [SerializeField]
+    GameObject robotGenerator;
 
     public float speedIncrease;
     public float timeInterval;
@@ -29,6 +31,7 @@ public class ControlGeneration : MonoBehaviour
             timer = 0;
             platformGenerator.GetComponent<GeneratePlatform>().SpeedUp(speedIncrease);
             parallaxGenerator.GetComponent<GenerateParallax>().SpeedUp(speedIncrease);
+            robotGenerator.GetComponent<ControlRobot>().SpeedUp(speedIncrease);
         }
     }
 }

@@ -103,8 +103,6 @@ public class GeneratePlatform : MonoBehaviour
     {
         platformSpeed *= multiplier;
         foreach (PlatformMovement gOb in FindObjectsOfType<PlatformMovement>())
-        {
             gOb.speed = platformSpeed;
-        }
     }
 }

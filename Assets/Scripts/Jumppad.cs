@@ -6,30 +6,32 @@ using UnityEngine;
 
 public class Jumppad : MonoBehaviour
 {
+    public bool isPlaced;
     // Start is called before the first frame update
     void Start()
     {
-
+        isPlaced = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(isPlaced && collision.gameObject.tag == "Player")
         {
+            gameObject.GetComponent<BoxCollider2D>().enabled = true;
             collision.gameObject.GetComponent<PlayerJump>().Jumppad = true;
         }
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (isPlaced && collision.gameObject.tag == "Player")
         {
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
             collision.gameObject.GetComponent<PlayerJump>().Jumppad = false;
         }
     }
