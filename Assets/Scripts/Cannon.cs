@@ -26,6 +26,7 @@ public class Cannon : MonoBehaviour
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = true;
             collision.gameObject.GetComponent<PlayerJump>().Cannon = true;
+            //print(collision.gameObject.GetComponent<PlayerJump>().Cannon);
         }
     }
 
@@ -33,8 +34,8 @@ public class Cannon : MonoBehaviour
     {
         if (isPlaced && collision.gameObject.tag == "Player")
         {
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
             collision.gameObject.GetComponent<PlayerJump>().Cannon = false;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 }

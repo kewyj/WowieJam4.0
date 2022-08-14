@@ -25,7 +25,6 @@ public class Drag : MonoBehaviour
  
     void OnMouseDown()
     {
-        Debug.Log("clicked");
         offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
         Cursor.visible = false;
     }

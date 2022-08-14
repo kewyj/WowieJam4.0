@@ -7,6 +7,7 @@ using UnityEngine;
 public class Jumppad : MonoBehaviour
 {
     public bool isPlaced;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,7 @@ public class Jumppad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -31,8 +33,8 @@ public class Jumppad : MonoBehaviour
     {
         if (isPlaced && collision.gameObject.tag == "Player")
         {
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
             collision.gameObject.GetComponent<PlayerJump>().Jumppad = false;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 }
