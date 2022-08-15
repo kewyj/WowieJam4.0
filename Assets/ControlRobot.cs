@@ -27,14 +27,9 @@ public class ControlRobot : MonoBehaviour
     {
         if (GameObject.Find("MenuManager").GetComponent<MenuManager>().paused) return;
 
-<<<<<<< Updated upstream
         var _i = 0;
         var _xPos = -xPos;
         foreach (var obj in randomRobotsType)
-=======
-        float _xPos = -xPos;
-        for (var _i = 0; _i < 3; ++_i)
->>>>>>> Stashed changes
         {
             if (randomRobotsPos[_i].GetComponent<Drag>().isPlaced)
             {
