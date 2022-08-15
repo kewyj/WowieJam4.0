@@ -67,7 +67,7 @@ public class MenuManager : MonoBehaviour {
     RestartMenu();
     restartTimer = 0;
     maxRestartTimer = 1;
-    maxTime = 2;
+    maxTime = 0.5f;
   }
   // Update is called once per frame
   void Update() {
