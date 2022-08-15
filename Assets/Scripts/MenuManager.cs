@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MenuManager : MonoBehaviour {
@@ -14,10 +15,14 @@ public class MenuManager : MonoBehaviour {
   public GameObject bigMenuButton;
   public GameObject blackScreen;
   public GameObject[] helpScreens;
+  public GameObject timeScore;
+  public GameObject distanceScore;
 
   public UnityEngine.UI.Image startButtonImage;
   public UnityEngine.UI.Image pauseButtonImage;
   public SpriteRenderer blackScreenImage;
+  public TMP_Text timeScoreText;
+  public TMP_Text distanceScoreText;
 
   private float timer;
   private float maxTime;
@@ -27,6 +32,8 @@ public class MenuManager : MonoBehaviour {
   private float maxRestartTimer;
   private bool restartFlip;
   private int helpIndex;
+  private float timeScoreValue;
+  private float distanceScoreValue;
 
   // Start is called before the first frame update
   void Start() {
@@ -39,10 +46,15 @@ public class MenuManager : MonoBehaviour {
     exitHelpButton = GameObject.Find("ExitHelpButton");
     bigRestartButton = GameObject.Find("BigRestartButton");
     bigMenuButton = GameObject.Find("BigMenuButton");
+    timeScore = GameObject.Find("TimeScore");
+    distanceScore = GameObject.Find("DistanceScore");
 
     startButtonImage = startButton.GetComponent<UnityEngine.UI.Image>();
     pauseButtonImage = pauseButton.GetComponent<UnityEngine.UI.Image>();
     blackScreenImage = blackScreen.GetComponent<SpriteRenderer>();
+
+    timeScoreText = timeScore.GetComponent<TMP_Text>();
+    distanceScoreText = distanceScore.GetComponent<TMP_Text>();
 
     blackScreen.SetActive(false);
 
@@ -53,6 +65,8 @@ public class MenuManager : MonoBehaviour {
   }
   // Update is called once per frame
   void Update() {
+
+    if (timeScore.activeSelf && distanceScore.activeSelf && !paused) UpdateScore();
 
     // If start was pressed
     if (timer > 0) {
@@ -92,7 +106,6 @@ public class MenuManager : MonoBehaviour {
       restartTimer -= Time.deltaTime;
       if (restartTimer < 0) restartTimer = 0;
       float ratio = restartTimer / maxRestartTimer;
-
       if (restartFlip) {
         // Lighting back up
         blackScreenImage.color = new Color(0, 0, 0, ratio);
@@ -117,6 +130,8 @@ public class MenuManager : MonoBehaviour {
     timer = maxTime;
     pauseButton.SetActive(true);
     helpButton.SetActive(false);
+    timeScore.SetActive(true);
+    distanceScore.SetActive(true);
   }
 
   public void OnPauseClick() {
@@ -146,9 +161,14 @@ public class MenuManager : MonoBehaviour {
     prevHelpButton.SetActive(false);
     exitHelpButton.SetActive(false);
 
+    distanceScore.SetActive(false);
+    timeScore.SetActive(false);
+
     timer = 0;
     helpIndex = 0;
     quickRestart = false;
+    paused = false;
+    ResetScore();
   }
 
   public void OnRestartClick() {
@@ -210,6 +230,7 @@ public class MenuManager : MonoBehaviour {
     pauseButton.SetActive(true);
     paused = false;
     quickRestart = true;
+    ResetScore();
   }
 
   public void BigMenuClick() {
@@ -220,5 +241,18 @@ public class MenuManager : MonoBehaviour {
     bool temp = quickRestart;
     quickRestart = false;
     return temp;
+  }
+
+  public void ResetScore() {
+    distanceScoreValue = 0;
+    timeScoreValue = 0;
+  }
+
+  public void UpdateScore() {
+    float speed = 10.0f;
+    timeScoreValue += Time.deltaTime;
+    distanceScoreValue += Time.deltaTime * speed;
+    timeScoreText.text = "Time: " + timeScoreValue.ToString();
+    distanceScoreText.text = "Distance: " + distanceScoreValue.ToString();
   }
 }
