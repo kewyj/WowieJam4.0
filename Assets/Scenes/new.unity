@@ -1299,6 +1299,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HelpButton
       objectReference: {fileID: 0}
+    - target: {fileID: 7780844922291821019, guid: f1811a73a750bd94ab994eb660f8742a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1811a73a750bd94ab994eb660f8742a, type: 3}
 --- !u!224 &1043211049 stripped
