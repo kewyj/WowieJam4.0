@@ -9,8 +9,6 @@ public class ControlWinLose : MonoBehaviour
     [SerializeField]
     GameObject GeneratorController;
 
-    private AudioSource Sound;
-
     // Start is called before the first frame update
     void Start()
     {
