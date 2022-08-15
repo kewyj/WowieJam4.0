@@ -10,7 +10,7 @@ public class PlayerJump : MonoBehaviour
     public bool Jumppad = false;
     public bool Cannon = false;
     private Vector2 JumpSpeed = new Vector2(0, 1500.0f);
-    private Vector2 CannonSpeed = new Vector2(0, 6200.0f);
+    private Vector2 CannonSpeed = new Vector2(0, 3700.0f);
     private Rigidbody2D Rigid;
 
     // Start is called before the first frame update
@@ -25,19 +25,24 @@ public class PlayerJump : MonoBehaviour
         if (Jumppad == true)
         {
             Rigid.drag = 0;
-            Rigid.gravityScale = 100;
+            Rigid.gravityScale = 350;
             Rigid.velocity = new Vector2(Rigid.velocity.x, 0f);
             Rigid.AddForce(Vector2.up * JumpSpeed, ForceMode2D.Impulse);
         }
         if (Cannon == true)
         {
-            Rigid.drag = 15;
-            Rigid.gravityScale = 100;
+            Rigid.drag = 6;
             Rigid.velocity = new Vector2(Rigid.velocity.x, 0f);
             Rigid.AddForce(Vector2.up * CannonSpeed, ForceMode2D.Impulse);
+            Rigid.gravityScale = 90;
         }
-        if (Jumppad == false && Cannon == false)
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Platform" && Jumppad == false && Cannon == false)
         {
+            Rigid.drag = 0;
             Rigid.gravityScale = 500;
         }
     }
