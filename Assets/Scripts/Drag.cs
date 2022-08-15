@@ -20,7 +20,31 @@ public class Drag : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        /*
+        switch (gameObject.tag)
+        {
+            case "Jump":
+                if(gameObject.GetComponent<Jumppad>().isPlaced == true)
+                {
+                    gameObject.layer = 0;
+                }
+                else
+                {
+                    gameObject.layer = 5;
+                }
+                break;
+            case "Cannon":
+                if(gameObject.GetComponent<Cannon>().isPlaced == true)
+                {
+                    gameObject.layer = 0;
+                }
+                else
+                {
+                    gameObject.layer = 5;
+                }
+                break;
+        }
+        */
     }
  
     void OnMouseDown()
@@ -45,7 +69,6 @@ public class Drag : MonoBehaviour
                 gameObject.GetComponent<Jumppad>().isPlaced = true;
             else if (gameObject.tag == "Cannon")
                 gameObject.GetComponent<Cannon>().isPlaced = true;
-
         }
         else
         {

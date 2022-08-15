@@ -5,6 +5,7 @@ using UnityEngine;
 public class GeneratePlatform : MonoBehaviour
 {
     public float platformSpeed;
+    private float originalSpeed;
     public float pitfallLength;
 
     private float distance;
@@ -31,6 +32,7 @@ public class GeneratePlatform : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        originalSpeed = platformSpeed;
         floor = Instantiate(floor5, new Vector3(0, -600, 0), Quaternion.identity);
         distance = -floor.transform.localScale.x * 45.714f + 960;
         floor.GetComponent<PlatformMovement>().speed = platformSpeed;
@@ -93,8 +95,6 @@ public class GeneratePlatform : MonoBehaviour
                         Quaternion.identity);
                     roof.GetComponent<PlatformMovement>().speed = platformSpeed;
                 }
-                
-
             }
         }
     }
@@ -104,5 +104,13 @@ public class GeneratePlatform : MonoBehaviour
         platformSpeed *= multiplier;
         foreach (PlatformMovement gOb in FindObjectsOfType<PlatformMovement>())
             gOb.speed = platformSpeed;
+    }
+
+    public void Restart()
+    {
+        foreach (PlatformMovement gOb in FindObjectsOfType<PlatformMovement>())
+            Destroy(gOb.gameObject);
+        platformSpeed = originalSpeed;
+        Start();
     }
 }

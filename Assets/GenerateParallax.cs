@@ -7,6 +7,11 @@ public class GenerateParallax : MonoBehaviour
     public float backgroundSpeed;
     public float middlegroundSpeed;
     public float foregroundSpeed;
+
+    private float originalBgdSpeed;
+    private float originalMgdSpeed;
+    private float originalFgdSpeed;
+
     // Start is called before the first frame update
     [SerializeField]
     GameObject background;
@@ -24,6 +29,9 @@ public class GenerateParallax : MonoBehaviour
 
     void Start()
     {
+        originalBgdSpeed = backgroundSpeed;
+        originalMgdSpeed = middlegroundSpeed;
+        originalFgdSpeed = foregroundSpeed;
         leftBack = Instantiate(background, new Vector3(0, 0, 0), Quaternion.identity);
         leftMid = Instantiate(middleground, new Vector3(0, 0, 0), Quaternion.identity);
         leftFore = Instantiate(foreground, new Vector3(0, 0, 0), Quaternion.identity);
@@ -51,5 +59,15 @@ public class GenerateParallax : MonoBehaviour
         {
             gOb.speed *= multiplier;
         }
+    }
+
+    public void Restart()
+    {
+        foreach (ParallaxMovement gOb in FindObjectsOfType<ParallaxMovement>())
+            Destroy(gOb.gameObject);
+        backgroundSpeed = originalBgdSpeed;
+        middlegroundSpeed = originalMgdSpeed;
+        foregroundSpeed = originalFgdSpeed;
+        Start();
     }
 }
