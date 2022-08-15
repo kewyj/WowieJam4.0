@@ -17,7 +17,6 @@ public class ControlGeneration : MonoBehaviour
     public float timeInterval;
 
     private float timer;
-
     public bool started;
 
     // Start is called before the first frame update

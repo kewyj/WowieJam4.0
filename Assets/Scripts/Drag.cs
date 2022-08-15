@@ -37,19 +37,19 @@ public class Drag : MonoBehaviour
  
     void OnMouseDown()
     {
-        if (isPlaced) return;
+        if (isPlaced || GameObject.FindWithTag("GameController").GetComponent<ControlGeneration>().started == false) return;
         offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
     }
 
     void OnMouseDrag()
     {
-        if (isPlaced) return;
+        if (isPlaced || GameObject.FindWithTag("GameController").GetComponent<ControlGeneration>().started == false) return;
         gameObject.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0)) + offset;
     }
 
     void OnMouseUp()
     {
-        if (isPlaced) return;
+        if (isPlaced || GameObject.FindWithTag("GameController").GetComponent<ControlGeneration>().started == false) return;
         if (placeItem == true)
         {
             isPlaced = true;
