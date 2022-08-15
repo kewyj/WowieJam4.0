@@ -12,7 +12,7 @@ public class PlayerDiedScript : MonoBehaviour {
   void Start() {
     Rigid = gameObject.GetComponent<Rigidbody2D>();
     died = false;
-    Sound = GetComponent<AudioSource>();
+    Sound = GetComponents<AudioSource>()[2];
   }
 
   // Update is called once per frame
@@ -33,6 +33,4 @@ public class PlayerDiedScript : MonoBehaviour {
   private void OnCollisionEnter2D(Collision2D collision) {
     if (died) Physics2D.IgnoreCollision(collision.collider, gameObject.GetComponent<Collider2D>());
   }
-
-
 }
