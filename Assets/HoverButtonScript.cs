@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine;
 
-public class HoverButtonScript : MonoBehaviour {
+public class HoverSmallButtonScript : MonoBehaviour {
 
   // Start is called before the first frame update
   void Start() {
-    gameObject.GetComponent<Animator>().Play("NotBreathingAnimation");
+    gameObject.GetComponent<Animator>().Play("SmallButtonNotBreathing");
   }
 
   // Update is called once per frame
@@ -16,18 +16,11 @@ public class HoverButtonScript : MonoBehaviour {
   }
 
   public void OnMouseEnter() {
-    print("hovering");
-    gameObject.GetComponent<Animator>().Play("ButtonBreathingAnimation");
-  }
-
-  public void OnMouseOver() {
-    print("mouseover");
-    gameObject.GetComponent<Animator>().Play("ButtonBreathingAnimation");
+    gameObject.GetComponent<Animator>().Play("SmallButtonBreathing");
   }
 
   public void OnMouseExit() {
-    print("not hovering");
-    gameObject.GetComponent<Animator>().Play("NotBreathingAnimation");
+    gameObject.GetComponent<Animator>().Play("SmallButtonNotBreathing");
   }
 
 }

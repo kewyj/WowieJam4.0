@@ -256,7 +256,7 @@ public class MenuManager : MonoBehaviour {
     float speed = 10.0f;
     timeScoreValue += Time.deltaTime;
     distanceScoreValue += Time.deltaTime * speed;
-    timeScoreText.text = "Time: " + timeScoreValue.ToString("0.00") + "s";
-    distanceScoreText.text = "Distance: " + ((int)distanceScoreValue).ToString() + "m";
+    timeScoreText.text = "Time: " + timeScoreValue.ToString("0.00") + " sec";
+    distanceScoreText.text = "Distance: " + ((int)distanceScoreValue).ToString() + " m";
   }
 }
