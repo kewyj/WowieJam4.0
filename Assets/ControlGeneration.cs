@@ -30,6 +30,8 @@ public class ControlGeneration : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameObject.Find("MenuManager").GetComponent<MenuManager>().paused) return;
+
         if (started)
             timer += Time.deltaTime;
 
@@ -42,10 +44,13 @@ public class ControlGeneration : MonoBehaviour
         }
     }
 
+    public void Play() {
+        QuickRestart();
+    }
+
     public void Restart()
     {
         platformGenerator.GetComponent<GeneratePlatform>().Restart();
-        parallaxGenerator.GetComponent<GenerateParallax>().Restart();
         robotGenerator.GetComponent<ControlRobot>().Restart();
         mainCharacter.GetComponent<PlayerJump>().Restart();
         Start();

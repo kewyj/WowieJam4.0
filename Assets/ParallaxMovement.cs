@@ -13,6 +13,8 @@ public class ParallaxMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameObject.Find("MenuManager").GetComponent<MenuManager>().paused) return;
+
         transform.Translate(-Time.deltaTime * speed, 0, 0);
         if (transform.position.x < -1920)
             transform.position = transform.position + new Vector3(3840.0f, 0, 0);

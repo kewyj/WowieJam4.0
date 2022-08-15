@@ -17,6 +17,7 @@ public class MenuManager : MonoBehaviour {
   public GameObject[] helpScreens;
   public GameObject timeScore;
   public GameObject distanceScore;
+  public GameObject generatorController;
 
   public UnityEngine.UI.Image startButtonImage;
   public UnityEngine.UI.Image pauseButtonImage;
@@ -24,10 +25,12 @@ public class MenuManager : MonoBehaviour {
   public TMP_Text timeScoreText;
   public TMP_Text distanceScoreText;
 
+  public Rigidbody2D Rigid;
+
+
   private float timer;
   private float maxTime;
-  private bool paused;
-  private bool quickRestart;
+  public bool paused;
   private float restartTimer;
   private float maxRestartTimer;
   private bool restartFlip;
@@ -48,6 +51,7 @@ public class MenuManager : MonoBehaviour {
     bigMenuButton = GameObject.Find("BigMenuButton");
     timeScore = GameObject.Find("TimeScore");
     distanceScore = GameObject.Find("DistanceScore");
+    generatorController = GameObject.Find("Generator Controller");
 
     startButtonImage = startButton.GetComponent<UnityEngine.UI.Image>();
     pauseButtonImage = pauseButton.GetComponent<UnityEngine.UI.Image>();
@@ -56,6 +60,8 @@ public class MenuManager : MonoBehaviour {
     timeScoreText = timeScore.GetComponent<TMP_Text>();
     distanceScoreText = distanceScore.GetComponent<TMP_Text>();
 
+    Rigid = GameObject.Find("BlindRobot").GetComponent<Rigidbody2D>();
+    
     blackScreen.SetActive(false);
 
     RestartMenu();
@@ -88,6 +94,8 @@ public class MenuManager : MonoBehaviour {
       // Mouse is clicked and outside button regions
       if (restartTimer <= 0)
       if (Input.GetMouseButtonDown(0)) {
+        // Rigid.constraints = RigidbodyConstraints2D.FreezePositionX;
+        Rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
         Vector3 mPos = Input.mousePosition;
         mPos = GameMaster.helper.ScreenToWorld(mPos);
         if (GameMaster.helper.Abs(mPos.x) > 250 || GameMaster.helper.Abs(mPos.y) > 150) {
@@ -132,6 +140,8 @@ public class MenuManager : MonoBehaviour {
     helpButton.SetActive(false);
     timeScore.SetActive(true);
     distanceScore.SetActive(true);
+
+    generatorController.GetComponent<ControlGeneration>().Play();
   }
 
   public void OnPauseClick() {
@@ -143,6 +153,8 @@ public class MenuManager : MonoBehaviour {
 
     Color temp = blackScreenImage.color;
     blackScreenImage.color = new Color(temp.r, temp.g, temp.b, 0.5f);
+    Rigid.constraints = RigidbodyConstraints2D.FreezeAll;
+    // GameObject.Find("BlindRobot").GetComponent<Rigidbody2D>().constraints |= RigidbodyConstraints.FreezePositionY;
   }
 
   public void RestartMenu() {
@@ -166,9 +178,11 @@ public class MenuManager : MonoBehaviour {
 
     timer = 0;
     helpIndex = 0;
-    quickRestart = false;
     paused = false;
     ResetScore();
+
+    GameObject.Find("BlindRobot").GetComponent<PlayerDiedScript>().died = false;
+    generatorController.GetComponent<ControlGeneration>().Restart();
   }
 
   public void OnRestartClick() {
@@ -229,18 +243,8 @@ public class MenuManager : MonoBehaviour {
     bigMenuButton.SetActive(false);
     pauseButton.SetActive(true);
     paused = false;
-    quickRestart = true;
     ResetScore();
-  }
-
-  public void BigMenuClick() {
-
-  }
-
-  public bool GetRestartState() {
-    bool temp = quickRestart;
-    quickRestart = false;
-    return temp;
+    generatorController.GetComponent<ControlGeneration>().Restart();
   }
 
   public void ResetScore() {

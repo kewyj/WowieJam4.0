@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GenerateParallax : MonoBehaviour
 {
-    public float backgroundSpeed;
-    public float middlegroundSpeed;
-    public float foregroundSpeed;
+    private float backgroundSpeed;
+    private float middlegroundSpeed;
+    private float foregroundSpeed;
 
     private float originalBgdSpeed;
     private float originalMgdSpeed;
@@ -29,9 +29,9 @@ public class GenerateParallax : MonoBehaviour
 
     void Start()
     {
-        originalBgdSpeed = backgroundSpeed;
-        originalMgdSpeed = middlegroundSpeed;
-        originalFgdSpeed = foregroundSpeed;
+        originalBgdSpeed = backgroundSpeed = 50;
+        originalMgdSpeed = middlegroundSpeed = 200;
+        originalFgdSpeed = foregroundSpeed = 250;
         leftBack = Instantiate(background, new Vector3(0, 0, 0), Quaternion.identity);
         leftMid = Instantiate(middleground, new Vector3(0, 0, 0), Quaternion.identity);
         leftFore = Instantiate(foreground, new Vector3(0, 0, 0), Quaternion.identity);

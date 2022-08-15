@@ -25,6 +25,8 @@ public class ControlRobot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameObject.Find("MenuManager").GetComponent<MenuManager>().paused) return;
+
         var _xPos = -xPos;
         for (var _i = 0; _i < 3; ++_i)
         {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GeneratePlatform : MonoBehaviour
 {
-    public float platformSpeed;
+    private float platformSpeed;
     private float originalSpeed;
     public float pitfallLength;
 
@@ -40,16 +40,20 @@ public class GeneratePlatform : MonoBehaviour
     GameObject floor;
     GameObject spikeStrip;
     GameObject roof;
+    GameObject floord;
 
     // Start is called before the first frame update
     void Start()
     {
+        platformSpeed = 500;
         started = false;
         runOnlyOnce = false;
         originalSpeed = platformSpeed;
         platformSpeed = 0;
         floor = Instantiate(floor5, new Vector3(0, -600, 0), Quaternion.identity);
-        Instantiate(floor5d, new Vector3(0, -600, 0), Quaternion.identity).GetComponent<PlatformMovement>().speed = platformSpeed;
+        floord = Instantiate(floor5, new Vector3(0, -600, 0), Quaternion.identity);
+        floord.GetComponent<PlatformMovement>().speed = platformSpeed;
+        floord.layer = 5;
 
         distance = -floor.transform.localScale.x * 45.714f + 960;
         floor.GetComponent<PlatformMovement>().speed = platformSpeed;
@@ -58,11 +62,15 @@ public class GeneratePlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameObject.Find("MenuManager").GetComponent<MenuManager>().paused) return;
         if (started && !runOnlyOnce)
         {
             platformSpeed = originalSpeed;
             runOnlyOnce = !runOnlyOnce; 
         }
+        floor.GetComponent<PlatformMovement>().speed = platformSpeed;
+        floord.GetComponent<PlatformMovement>().speed = platformSpeed;
+
         distance += Time.deltaTime * floor.GetComponent<PlatformMovement>().speed;
         if (distance > pitfallLength)
         {
@@ -72,32 +80,25 @@ public class GeneratePlatform : MonoBehaviour
             {
                 case 1:
                     tempFloor = floor1;
-                    Instantiate(floor1d, new Vector3(0, -600, 0), Quaternion.identity).GetComponent<PlatformMovement>().speed = platformSpeed;
-
                     break;
                 case 2:
                     tempFloor = floor2;
-                    Instantiate(floor2d, new Vector3(0, -600, 0), Quaternion.identity).GetComponent<PlatformMovement>().speed = platformSpeed;
-
                     break;
                 case 3:
                     tempFloor = floor3;
-                    Instantiate(floor3d, new Vector3(0, -600, 0), Quaternion.identity).GetComponent<PlatformMovement>().speed = platformSpeed;
-
                     break;
                 case 4:
                     tempFloor = floor4;
-                    Instantiate(floor4d, new Vector3(0, -600, 0), Quaternion.identity).GetComponent<PlatformMovement>().speed = platformSpeed;
-
                     break;
                 case 5:
                     tempFloor = floor5;
-                    Instantiate(floor5d, new Vector3(0, -600, 0), Quaternion.identity).GetComponent<PlatformMovement>().speed = platformSpeed;
-
                     break;
             }
             floor = Instantiate(tempFloor, new Vector3(960 + tempFloor.transform.localScale.x * 45.714f, -600, 0), Quaternion.identity);
+            floord = Instantiate(tempFloor, new Vector3(960 + tempFloor.transform.localScale.x * 45.714f, -600, 0), Quaternion.identity);
             floor.GetComponent<PlatformMovement>().speed = platformSpeed;
+            floord.GetComponent<PlatformMovement>().speed = platformSpeed;
+            floord.layer = 5;
             distance = -floor.transform.localScale.x * 91.4285f;
 
             if (Random.Range(0,2) == 1 && temp == 5)
