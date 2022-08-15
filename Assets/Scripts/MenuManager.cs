@@ -244,7 +244,8 @@ public class MenuManager : MonoBehaviour {
     pauseButton.SetActive(true);
     paused = false;
     ResetScore();
-    generatorController.GetComponent<ControlGeneration>().Restart();
+    generatorController.GetComponent<ControlGeneration>().QuickRestart();
+    GameObject.FindWithTag("GameController").GetComponent<ControlGeneration>().started = true;
   }
 
   public void ResetScore() {
