@@ -2992,6 +2992,11 @@ MonoBehaviour:
   floor3: {fileID: 6157892549140029239, guid: 22af98d5fc616e4418822f8ce27aa525, type: 3}
   floor4: {fileID: 5873355391199439633, guid: 63351b423ca176142824f1f5d816e0bc, type: 3}
   floor5: {fileID: 8806709861236758910, guid: a2110d6c8eccb854e9e715b8ef2f2ad5, type: 3}
+  floor1d: {fileID: 5595478807189714137, guid: 24c3bcd57f408d64b9f868002664352e, type: 3}
+  floor2d: {fileID: 1017156345634129309, guid: a22ab0eaf864af44badc334ecbc0ef1f, type: 3}
+  floor3d: {fileID: 6157892549140029239, guid: 7c530415c5606eb45a255e0557835b29, type: 3}
+  floor4d: {fileID: 5873355391199439633, guid: b5e004a5d4649074d91f795d6bd1f99e, type: 3}
+  floor5d: {fileID: 8806709861236758910, guid: ad04418c03cfd354384a5f976b153081, type: 3}
   jump: {fileID: 2532861687112800312, guid: b9bef2981bd13a649b276a451891487a, type: 3}
   canon: {fileID: 6379022156996354971, guid: 43de58099b7c2e84ebfe681f90dbc8bb, type: 3}
   started: 0

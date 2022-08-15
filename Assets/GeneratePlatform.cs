@@ -21,6 +21,16 @@ public class GeneratePlatform : MonoBehaviour
     [SerializeField]
     GameObject floor5;
     [SerializeField]
+    GameObject floor1d;
+    [SerializeField]
+    GameObject floor2d;
+    [SerializeField]
+    GameObject floor3d;
+    [SerializeField]
+    GameObject floor4d;
+    [SerializeField]
+    GameObject floor5d;
+    [SerializeField]
     GameObject jump;
     [SerializeField]
     GameObject canon;
@@ -39,6 +49,8 @@ public class GeneratePlatform : MonoBehaviour
         originalSpeed = platformSpeed;
         platformSpeed = 0;
         floor = Instantiate(floor5, new Vector3(0, -600, 0), Quaternion.identity);
+        Instantiate(floor5d, new Vector3(0, -600, 0), Quaternion.identity).GetComponent<PlatformMovement>().speed = platformSpeed;
+
         distance = -floor.transform.localScale.x * 45.714f + 960;
         floor.GetComponent<PlatformMovement>().speed = platformSpeed;
     }
@@ -60,18 +72,28 @@ public class GeneratePlatform : MonoBehaviour
             {
                 case 1:
                     tempFloor = floor1;
+                    Instantiate(floor1d, new Vector3(0, -600, 0), Quaternion.identity).GetComponent<PlatformMovement>().speed = platformSpeed;
+
                     break;
                 case 2:
                     tempFloor = floor2;
+                    Instantiate(floor2d, new Vector3(0, -600, 0), Quaternion.identity).GetComponent<PlatformMovement>().speed = platformSpeed;
+
                     break;
                 case 3:
                     tempFloor = floor3;
+                    Instantiate(floor3d, new Vector3(0, -600, 0), Quaternion.identity).GetComponent<PlatformMovement>().speed = platformSpeed;
+
                     break;
                 case 4:
                     tempFloor = floor4;
+                    Instantiate(floor4d, new Vector3(0, -600, 0), Quaternion.identity).GetComponent<PlatformMovement>().speed = platformSpeed;
+
                     break;
                 case 5:
                     tempFloor = floor5;
+                    Instantiate(floor5d, new Vector3(0, -600, 0), Quaternion.identity).GetComponent<PlatformMovement>().speed = platformSpeed;
+
                     break;
             }
             floor = Instantiate(tempFloor, new Vector3(960 + tempFloor.transform.localScale.x * 45.714f, -600, 0), Quaternion.identity);

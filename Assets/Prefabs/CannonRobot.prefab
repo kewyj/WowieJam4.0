@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6350475248472501641}
   - component: {fileID: 9023405954943123320}
   - component: {fileID: 8326377740428660861}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CannonRobot
   m_TagString: Cannon
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.912755, g: 0.71132076, b: 1, a: 1}
   m_FlipX: 0
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855738c07b112de4499a084173900b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlaced: 0
 --- !u!61 &6350475248472501641
 BoxCollider2D:
   m_ObjectHideFlags: 0

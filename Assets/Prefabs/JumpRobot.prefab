@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6350475248472501641}
   - component: {fileID: -6755358359608826670}
   - component: {fileID: 4202192767225732941}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: JumpRobot
   m_TagString: Jump
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0.8892275, b: 0.8156863, a: 1}
   m_FlipX: 0
