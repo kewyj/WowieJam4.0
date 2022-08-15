@@ -8,6 +8,8 @@ TagManager:
   - Undefined
   - Cannon
   - Jump
+  - Laser
+  - Roof
   layers:
   - Default
   - TransparentFX

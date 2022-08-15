@@ -7,23 +7,33 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
 {
-    public bool Jumppad = false;
-    public bool Cannon = false;
-    private Vector2 JumpSpeed = new Vector2(0, 1500.0f);
-    private Vector2 CannonSpeed = new Vector2(0, 3700.0f);
+    public bool Jumppad;
+    public bool Cannon;
+    private Vector2 JumpSpeed;
+    private Vector2 CannonSpeed;
     private Rigidbody2D Rigid;
     private AudioSource WalkingSound;
+
+    public bool death;
 
     // Start is called before the first frame update
     void Start()
     {
+        death = false;
+        Jumppad = false;
+        Cannon = false;
+        JumpSpeed = new Vector2(0, 1500.0f);
+        CannonSpeed = new Vector2(0, 3700.0f);
         Rigid = gameObject.GetComponent<Rigidbody2D>();
         WalkingSound = GetComponents<AudioSource>()[1];
+        gameObject.transform.position = new Vector3(-700, -244, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (transform.position.y < -540)
+            death = true;
         if (Jumppad == true)
         {
             Rigid.drag = 0;
@@ -56,5 +66,11 @@ public class PlayerJump : MonoBehaviour
         {
             WalkingSound.Stop();
         }
+    }
+
+    public void Restart()
+    {
+        gameObject.transform.position = new Vector3(-700, -244, 0);
+        Start();
     }
 }

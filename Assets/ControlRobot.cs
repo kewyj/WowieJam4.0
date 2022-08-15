@@ -5,6 +5,8 @@ using UnityEngine;
 public class ControlRobot : MonoBehaviour
 {
     public float platformSpeed;
+    private float originalSpeed;
+
     //[SerializeField]
     //GameObject bridge;
     [SerializeField]
@@ -19,6 +21,7 @@ public class ControlRobot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        originalSpeed = platformSpeed;
         //bridgeRobot = Instantiate(bridge, new Vector3(300, -300, 1), Quaternion.identity);
         jumpRobot = Instantiate(jump, new Vector3(500, -450, 1), Quaternion.identity);
         cannonRobot = Instantiate(cannon, new Vector3(700, -450, 1), Quaternion.identity);
@@ -44,5 +47,13 @@ public class ControlRobot : MonoBehaviour
         platformSpeed *= multiplier;
         foreach (RobotMovement gOb in FindObjectsOfType<RobotMovement>())
             gOb.speed *= multiplier;
+    }
+
+    public void Restart()
+    {
+        foreach (RobotMovement gOb in FindObjectsOfType<RobotMovement>())
+            Destroy(gOb.gameObject);
+        platformSpeed = originalSpeed;
+        Start();
     }
 }

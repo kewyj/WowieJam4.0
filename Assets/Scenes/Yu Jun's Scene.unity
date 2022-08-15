@@ -207,6 +207,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &527906346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 527906348}
+  - component: {fileID: 527906347}
+  m_Layer: 0
+  m_Name: Win Lose Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &527906347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527906346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e818676474f86b1479c24709ff0b2274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 581520601}
+  GeneratorController: {fileID: 1307527913}
+--- !u!4 &527906348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527906346}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -251.75745, y: -73.31275, z: -11.049796}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &581520601
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,6 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Jumppad: 0
   Cannon: 0
+  death: 0
 --- !u!58 &581520603
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -338,7 +385,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 581520601}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -605, y: 174, z: 0}
+  m_LocalPosition: {x: -700, y: 174, z: 0}
   m_LocalScale: {x: 109.247894, y: 109.247894, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -439,6 +486,7 @@ MonoBehaviour:
   platformGenerator: {fileID: 1760527795}
   parallaxGenerator: {fileID: 1941495904}
   robotGenerator: {fileID: 1226522293}
+  mainCharacter: {fileID: 581520601}
   speedIncrease: 1.005
   timeInterval: 30
 --- !u!1 &1760527795
