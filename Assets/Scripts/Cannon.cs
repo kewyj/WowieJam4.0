@@ -7,11 +7,13 @@ using UnityEngine;
 public class Cannon : MonoBehaviour
 {
     public bool isPlaced;
+    private AudioSource Sound;
 
     // Start is called before the first frame update
     void Start()
     {
         isPlaced = false;
+        Sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,7 +28,7 @@ public class Cannon : MonoBehaviour
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = true;
             collision.gameObject.GetComponent<PlayerJump>().Cannon = true;
-            //print(collision.gameObject.GetComponent<PlayerJump>().Cannon);
+            Sound.Play();
         }
     }
 

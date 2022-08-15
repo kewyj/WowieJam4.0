@@ -93,8 +93,6 @@ public class GeneratePlatform : MonoBehaviour
                         Quaternion.identity);
                     roof.GetComponent<PlatformMovement>().speed = platformSpeed;
                 }
-                
-
             }
         }
     }

@@ -12,11 +12,13 @@ public class PlayerJump : MonoBehaviour
     private Vector2 JumpSpeed = new Vector2(0, 1500.0f);
     private Vector2 CannonSpeed = new Vector2(0, 3700.0f);
     private Rigidbody2D Rigid;
+    private AudioSource WalkingSound;
 
     // Start is called before the first frame update
     void Start()
     {
         Rigid = gameObject.GetComponent<Rigidbody2D>();
+        WalkingSound = GetComponents<AudioSource>()[1];
     }
 
     // Update is called once per frame
@@ -44,6 +46,15 @@ public class PlayerJump : MonoBehaviour
         {
             Rigid.drag = 0;
             Rigid.gravityScale = 500;
+            WalkingSound.Play();
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Platform")
+        {
+            WalkingSound.Stop();
         }
     }
 }
