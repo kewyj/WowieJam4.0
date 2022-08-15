@@ -16,17 +16,14 @@ public class HoverButtonScript : MonoBehaviour {
   }
 
   public void OnMouseEnter() {
-    print("hovering");
     gameObject.GetComponent<Animator>().Play("ButtonBreathingAnimation");
   }
 
   public void OnMouseOver() {
-    print("mouseover");
     gameObject.GetComponent<Animator>().Play("ButtonBreathingAnimation");
   }
 
   public void OnMouseExit() {
-    print("not hovering");
     gameObject.GetComponent<Animator>().Play("NotBreathingAnimation");
   }
 

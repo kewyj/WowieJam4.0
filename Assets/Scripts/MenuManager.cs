@@ -137,7 +137,7 @@ public class MenuManager : MonoBehaviour {
     if (timer > 0) return;
     timer = maxTime;
     pauseButton.SetActive(true);
-    helpButton.SetActive(false);
+    // helpButton.SetActive(false);
     timeScore.SetActive(true);
     distanceScore.SetActive(true);
 
@@ -164,7 +164,7 @@ public class MenuManager : MonoBehaviour {
     startButton.GetComponent<UnityEngine.UI.Image>().color = new Color(temp.r, temp.g, temp.b, 1);
 
     startButton.SetActive(true);
-    helpButton.SetActive(true);
+    // helpButton.SetActive(false);
     pauseButton.SetActive(false);
     bigRestartButton.SetActive(false);
     bigMenuButton.SetActive(false);
@@ -226,7 +226,7 @@ public class MenuManager : MonoBehaviour {
     blackScreen.SetActive(false);
 
     startButton.SetActive(true);
-    helpButton.SetActive(true);
+    helpButton.SetActive(false);
   }
 
   public void ChangeHelpScene(int index) {

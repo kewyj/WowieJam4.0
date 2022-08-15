@@ -26,14 +26,16 @@ public class PlayerDiedScript : MonoBehaviour {
   public void Die() {
     Sound.Play();
     died = true;
+    GameObject.Find("MenuManager").GetComponent<MenuManager>().OnRestartClick();
     Rigid.drag = 0;
     Rigid.gravityScale = 350;
     Rigid.velocity = new Vector2(Rigid.velocity.x, 0f);
     Rigid.AddForce(Vector2.up * new Vector2(0, 1000.0f), ForceMode2D.Impulse);
-    GameObject.Find("MenuManager").GetComponent<MenuManager>().OnRestartClick();
   }
 
   private void OnCollisionEnter2D(Collision2D collision) {
-    if (died) Physics2D.IgnoreCollision(collision.collider, gameObject.GetComponent<Collider2D>());
+    if (died) {
+      Physics2D.IgnoreCollision(collision.collider, gameObject.GetComponent<Collider2D>());
+    }
   }
 }

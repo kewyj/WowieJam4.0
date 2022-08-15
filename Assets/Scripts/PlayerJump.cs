@@ -32,8 +32,10 @@ public class PlayerJump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y < -540)
-            death = true;
+        if (transform.position.y < -540) {
+            if (!GameObject.Find("BlindRobot").GetComponent<PlayerDiedScript>().died) death = true;
+        }
+
 
         if (Jumppad == true)
         {
