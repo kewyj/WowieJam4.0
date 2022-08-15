@@ -200,7 +200,7 @@ public class MenuManager : MonoBehaviour {
     nextHelpButton.SetActive(true);
     exitHelpButton.SetActive(true);
     blackScreen.SetActive(true);
-    blackScreenImage.color = new Color(0, 0, 0, 0.5f);
+    blackScreenImage.color = new Color(0, 0, 0, 0.75f);
     ChangeHelpScene(helpIndex);
   }
 
