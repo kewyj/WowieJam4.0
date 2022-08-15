@@ -17,7 +17,10 @@ public class PlayerDiedScript : MonoBehaviour {
 
   // Update is called once per frame
   void Update() {
-    if (GameObject.Find("BlindRobot").GetComponent<PlayerJump>().death) Die();    
+    if (GameObject.Find("BlindRobot").GetComponent<PlayerJump>().death) {
+      Die();    
+      GameObject.Find("BlindRobot").GetComponent<PlayerJump>().death = false;
+    }
   }
 
   public void Die() {

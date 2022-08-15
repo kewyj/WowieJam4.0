@@ -1720,12 +1720,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yPos: -450
-  xPos: 400
+  xPos: 450
   platformSpeed: 500
   randomRobotsType:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 939201610007936372, guid: 2ea2d3dcc92fbbd4993876899868f9d7, type: 3}
+  - {fileID: 6765518333987078749, guid: b51dd73d663f35543a72cc771d2d098a, type: 3}
+  - {fileID: 6765518333987078749, guid: 3694d79ce5cb78f49bc682f7c8ac7fed, type: 3}
 --- !u!4 &1157702752
 Transform:
   m_ObjectHideFlags: 0
@@ -1767,7 +1767,7 @@ RectTransform:
   m_GameObject: {fileID: 1250543695}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 103.63}
-  m_LocalScale: {x: 2213.966, y: 1268.6772, z: 995.041}
+  m_LocalScale: {x: 124566.586, y: 71380.86, z: 55984.99}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1847524596}
@@ -1818,13 +1818,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: -705532884, guid: 096e725bc1543ea4a828b09531a34693, type: 3}
+  m_SortingOrder: 15
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1931,15 +1931,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7780844922291821018, guid: f1811a73a750bd94ab994eb660f8742a, type: 3}
       propertyPath: m_LocalScale.x
-      value: -1.6983
+      value: 1.6983
       objectReference: {fileID: 0}
     - target: {fileID: 7780844922291821018, guid: f1811a73a750bd94ab994eb660f8742a, type: 3}
       propertyPath: m_LocalScale.y
-      value: -1.6983
+      value: 1.6983
       objectReference: {fileID: 0}
     - target: {fileID: 7780844922291821018, guid: f1811a73a750bd94ab994eb660f8742a, type: 3}
       propertyPath: m_LocalScale.z
-      value: -1.6983
+      value: 1.6983
       objectReference: {fileID: 0}
     - target: {fileID: 7780844922291821018, guid: f1811a73a750bd94ab994eb660f8742a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1955,7 +1955,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7780844922291821018, guid: f1811a73a750bd94ab994eb660f8742a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7780844922291821018, guid: f1811a73a750bd94ab994eb660f8742a, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1967,7 +1967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7780844922291821018, guid: f1811a73a750bd94ab994eb660f8742a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7780844922291821018, guid: f1811a73a750bd94ab994eb660f8742a, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1987,7 +1987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7780844922291821018, guid: f1811a73a750bd94ab994eb660f8742a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 7780844922291821019, guid: f1811a73a750bd94ab994eb660f8742a, type: 3}
       propertyPath: m_Name
@@ -2540,7 +2540,7 @@ GameObject:
   - component: {fileID: 1728864829}
   m_Layer: 0
   m_Name: Generator Controller
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2561,8 +2561,8 @@ MonoBehaviour:
   parallaxGenerator: {fileID: 655195013}
   robotGenerator: {fileID: 1157702750}
   mainCharacter: {fileID: 2039595944}
-  speedIncrease: 1.005
-  timeInterval: 30
+  speedIncrease: 1.01
+  timeInterval: 10
   started: 0
 --- !u!4 &1728864830
 Transform:
@@ -2579,152 +2579,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1807926534
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1807926537}
-  - component: {fileID: 1807926536}
-  - component: {fileID: 1807926535}
-  - component: {fileID: 1807926539}
-  - component: {fileID: 1807926538}
-  m_Layer: 0
-  m_Name: BridgeRobot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!95 &1807926535
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807926534}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8c7cb7e23443bd140b41dbc517a92bb2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!212 &1807926536
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807926534}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 1561445786, guid: e765a2c97a36d0e4f9f2ca7cb557411f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1807926537
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807926534}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 300, y: 180, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1807926538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807926534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 855738c07b112de4499a084173900b78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPlaced: 0
---- !u!61 &1807926539
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807926534}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1428572, y: 0.6785714}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.1428572, y: 0.6785714}
-  m_EdgeRadius: 0
 --- !u!1 &1847524592
 GameObject:
   m_ObjectHideFlags: 0
@@ -3184,6 +3038,7 @@ GameObject:
   - component: {fileID: 2039595952}
   - component: {fileID: 2039595951}
   - component: {fileID: 2039595953}
+  - component: {fileID: 2039595954}
   m_Layer: 0
   m_Name: BlindRobot
   m_TagString: Player
@@ -3304,7 +3159,7 @@ Transform:
   m_GameObject: {fileID: 2039595944}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -605, y: 174, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 1}
+  m_LocalScale: {x: 110, y: 110, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3618,3 +3473,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2039595954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039595944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe43ad148741d7d4885f877917368335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  died: 0
