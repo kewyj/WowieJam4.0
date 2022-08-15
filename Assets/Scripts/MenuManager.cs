@@ -94,8 +94,8 @@ public class MenuManager : MonoBehaviour {
       // Mouse is clicked and outside button regions
       if (restartTimer <= 0)
       if (Input.GetMouseButtonDown(0)) {
-        // Rigid.constraints = RigidbodyConstraints2D.FreezePositionX;
         Rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
+        Rigid.WakeUp();
         Vector3 mPos = Input.mousePosition;
         mPos = GameMaster.helper.ScreenToWorld(mPos);
         if (GameMaster.helper.Abs(mPos.x) > 250 || GameMaster.helper.Abs(mPos.y) > 150) {
@@ -256,7 +256,7 @@ public class MenuManager : MonoBehaviour {
     float speed = 10.0f;
     timeScoreValue += Time.deltaTime;
     distanceScoreValue += Time.deltaTime * speed;
-    timeScoreText.text = "Time: " + timeScoreValue.ToString();
-    distanceScoreText.text = "Distance: " + distanceScoreValue.ToString();
+    timeScoreText.text = "Time: " + timeScoreValue.ToString("0.00") + "s";
+    distanceScoreText.text = "Distance: " + ((int)distanceScoreValue).ToString() + "m";
   }
 }
