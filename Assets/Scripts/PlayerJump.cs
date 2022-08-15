@@ -12,7 +12,7 @@ public class PlayerJump : MonoBehaviour
     private Vector2 JumpSpeed;
     private Vector2 CannonSpeed;
     private Rigidbody2D Rigid;
-    private AudioSource WalkingSound;
+    //private AudioSource WalkingSound;
 
     public bool death;
 
@@ -25,7 +25,7 @@ public class PlayerJump : MonoBehaviour
         JumpSpeed = new Vector2(0, 1500.0f);
         CannonSpeed = new Vector2(0, 3700.0f);
         Rigid = gameObject.GetComponent<Rigidbody2D>();
-        WalkingSound = GetComponents<AudioSource>()[1];
+        //WalkingSound = GetComponents<AudioSource>()[1];
         gameObject.transform.position = new Vector3(-700, -244, 0);
     }
 
@@ -56,7 +56,7 @@ public class PlayerJump : MonoBehaviour
         {
             Rigid.drag = 0;
             Rigid.gravityScale = 500;
-            WalkingSound.Play();
+            //WalkingSound.Play();
         }
     }
 
@@ -64,7 +64,7 @@ public class PlayerJump : MonoBehaviour
     {
         if (collision.gameObject.tag == "Platform")
         {
-            WalkingSound.Stop();
+            //WalkingSound.Stop();
         }
     }
 

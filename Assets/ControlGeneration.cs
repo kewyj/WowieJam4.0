@@ -18,16 +18,21 @@ public class ControlGeneration : MonoBehaviour
 
     private float timer;
 
+    public bool started;
+
     // Start is called before the first frame update
     void Start()
     {
+        started = false;
         timer = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
+        if (started)
+            timer += Time.deltaTime;
+
         if (timer > timeInterval)
         {
             timer = 0;
@@ -43,5 +48,13 @@ public class ControlGeneration : MonoBehaviour
         parallaxGenerator.GetComponent<GenerateParallax>().Restart();
         robotGenerator.GetComponent<ControlRobot>().Restart();
         mainCharacter.GetComponent<PlayerJump>().Restart();
+        Start();
+    }
+
+    public void QuickRestart()
+    {
+        Restart();
+        platformGenerator.GetComponent<GeneratePlatform>().QuickRestart();
+        started = true;
     }
 }

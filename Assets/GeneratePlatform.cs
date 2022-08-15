@@ -25,6 +25,8 @@ public class GeneratePlatform : MonoBehaviour
     [SerializeField]
     GameObject canon;
 
+    public bool started;
+    private bool runOnlyOnce;
     GameObject floor;
     GameObject spikeStrip;
     GameObject roof;
@@ -32,7 +34,10 @@ public class GeneratePlatform : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        started = false;
+        runOnlyOnce = false;
         originalSpeed = platformSpeed;
+        platformSpeed = 0;
         floor = Instantiate(floor5, new Vector3(0, -600, 0), Quaternion.identity);
         distance = -floor.transform.localScale.x * 45.714f + 960;
         floor.GetComponent<PlatformMovement>().speed = platformSpeed;
@@ -41,6 +46,11 @@ public class GeneratePlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (started && !runOnlyOnce)
+        {
+            platformSpeed = originalSpeed;
+            runOnlyOnce = !runOnlyOnce; 
+        }
         distance += Time.deltaTime * floor.GetComponent<PlatformMovement>().speed;
         if (distance > pitfallLength)
         {
@@ -112,5 +122,11 @@ public class GeneratePlatform : MonoBehaviour
             Destroy(gOb.gameObject);
         platformSpeed = originalSpeed;
         Start();
+    }
+
+    public void QuickRestart()
+    {
+        Restart();
+        started = true;
     }
 }
