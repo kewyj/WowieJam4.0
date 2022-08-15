@@ -5,11 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Platform
-  - Undefined
   - Cannon
   - Jump
   - Laser
   - Roof
+  - Bridge
   layers:
   - Default
   - TransparentFX

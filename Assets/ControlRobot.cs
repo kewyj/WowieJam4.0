@@ -4,41 +4,36 @@ using UnityEngine;
 
 public class ControlRobot : MonoBehaviour
 {
+    public float yPos = -450;
+    public float xPos = 400;
     public float platformSpeed;
     private float originalSpeed;
-
-    //[SerializeField]
-    //GameObject bridge;
+    private GameObject[] randomRobotsPos = new GameObject[3];
     [SerializeField]
-    GameObject jump;
-    [SerializeField]
-    GameObject cannon;
-
-    //GameObject bridgeRobot;
-    GameObject jumpRobot;
-    GameObject cannonRobot;
+    GameObject[] randomRobotsType;
 
     // Start is called before the first frame update
     void Start()
     {
         originalSpeed = platformSpeed;
-        //bridgeRobot = Instantiate(bridge, new Vector3(300, -300, 1), Quaternion.identity);
-        jumpRobot = Instantiate(jump, new Vector3(500, -450, 1), Quaternion.identity);
-        cannonRobot = Instantiate(cannon, new Vector3(700, -450, 1), Quaternion.identity);
-    }
 
+        randomRobotsPos[0] = Instantiate(randomRobotsType[0], new Vector3(-xPos, yPos, 1), Quaternion.identity);
+        randomRobotsPos[1] = Instantiate(randomRobotsType[1], new Vector3(0, yPos, 1), Quaternion.identity);
+        randomRobotsPos[2] = Instantiate(randomRobotsType[2], new Vector3(xPos, yPos, 1), Quaternion.identity);
+    }
+    
     // Update is called once per frame
     void Update()
     {
-        if (jumpRobot.GetComponent<Jumppad>().isPlaced)
+        var _xPos = -xPos;
+        for (var _i = 0; _i < 3; ++_i)
         {
-            jumpRobot.GetComponent<RobotMovement>().speed = platformSpeed;
-            jumpRobot = Instantiate(jump, new Vector3(500, -450, 1), Quaternion.identity);
-        }
-        if (cannonRobot.GetComponent<Cannon>().isPlaced)
-        {
-            cannonRobot.GetComponent<RobotMovement>().speed = platformSpeed;
-            cannonRobot = Instantiate(cannon, new Vector3(700, -450, 1), Quaternion.identity);
+            if (randomRobotsPos[_i].GetComponent<Drag>().isPlaced)
+            {
+                randomRobotsPos[_i].GetComponent<RobotMovement>().speed = platformSpeed;
+                randomRobotsPos[_i] = Instantiate(randomRobotsType[Random.Range(0, 3)], new Vector3(_xPos, yPos, 1), Quaternion.identity);
+            }
+            _xPos += xPos;
         }
     }
     

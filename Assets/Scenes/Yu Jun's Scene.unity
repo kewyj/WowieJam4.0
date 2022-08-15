@@ -2282,9 +2282,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2f9b9d8bf8d2144b9a60ab18571abf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yPos: -450
+  xPos: 400
   platformSpeed: 500
-  jump: {fileID: 6765518333987078749, guid: b51dd73d663f35543a72cc771d2d098a, type: 3}
-  cannon: {fileID: 6765518333987078749, guid: 3694d79ce5cb78f49bc682f7c8ac7fed, type: 3}
+  randomRobotsType:
+  - {fileID: 6765518333987078749, guid: 2ea2d3dcc92fbbd4993876899868f9d7, type: 3}
+  - {fileID: 6765518333987078749, guid: 3694d79ce5cb78f49bc682f7c8ac7fed, type: 3}
+  - {fileID: 6765518333987078749, guid: b51dd73d663f35543a72cc771d2d098a, type: 3}
 --- !u!4 &1226522295
 Transform:
   m_ObjectHideFlags: 0
