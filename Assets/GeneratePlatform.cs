@@ -21,16 +21,6 @@ public class GeneratePlatform : MonoBehaviour
     [SerializeField]
     GameObject floor5;
     [SerializeField]
-    GameObject floor1d;
-    [SerializeField]
-    GameObject floor2d;
-    [SerializeField]
-    GameObject floor3d;
-    [SerializeField]
-    GameObject floor4d;
-    [SerializeField]
-    GameObject floor5d;
-    [SerializeField]
     GameObject jump;
     [SerializeField]
     GameObject canon;
