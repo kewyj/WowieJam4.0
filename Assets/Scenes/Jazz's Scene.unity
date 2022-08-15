@@ -1866,6 +1866,7 @@ GameObject:
   - component: {fileID: 1495167350}
   - component: {fileID: 1495167352}
   - component: {fileID: 1495167353}
+  - component: {fileID: 1495167354}
   m_Layer: 0
   m_Name: BlindRobot
   m_TagString: Untagged
@@ -1933,8 +1934,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495167348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -579, y: -129, z: 0}
-  m_LocalScale: {x: 501.2196, y: 297.5462, z: 159.75636}
+  m_LocalPosition: {x: -425, y: -189, z: 0}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1977,6 +1978,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1495167354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495167348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe43ad148741d7d4885f877917368335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1555820261
 PrefabInstance:
   m_ObjectHideFlags: 0
