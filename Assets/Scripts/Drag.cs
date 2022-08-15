@@ -71,7 +71,10 @@ public class Drag : MonoBehaviour
         GameObject CollisionItem = collision.gameObject;
         if (CollisionItem.tag == "Platform"){
             placeItem = true;
-            placeAt = CollisionItem.transform.position.y + CollisionItem.transform.localScale.y * 20 - (gameObject.transform.localScale.y * 0.25f);
+            if (gameObject.tag == "Bridge")
+                placeAt = -370;
+            else
+                placeAt = CollisionItem.transform.position.y + CollisionItem.transform.localScale.y * 20 + (gameObject.transform.localScale.y * 0.5f);
         };
         if (isPlaced && CollisionItem.tag == "Player")
         {

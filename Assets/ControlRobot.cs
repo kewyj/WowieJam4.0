@@ -17,7 +17,7 @@ public class ControlRobot : MonoBehaviour
     {
         originalSpeed = platformSpeed;
 
-        randomRobotsPos[0] = Instantiate(randomRobotsType[0], new Vector3(-xPos, yPos, 1), Quaternion.identity);
+        randomRobotsPos[0] = Instantiate(randomRobotsType[0], new Vector3(-xPos, yPos - 18, 1), Quaternion.identity);
         randomRobotsPos[1] = Instantiate(randomRobotsType[1], new Vector3(0, yPos, 1), Quaternion.identity);
         randomRobotsPos[2] = Instantiate(randomRobotsType[2], new Vector3(xPos, yPos, 1), Quaternion.identity);
     }
@@ -27,14 +27,24 @@ public class ControlRobot : MonoBehaviour
     {
         if (GameObject.Find("MenuManager").GetComponent<MenuManager>().paused) return;
 
+<<<<<<< Updated upstream
         var _i = 0;
         var _xPos = -xPos;
         foreach (var obj in randomRobotsType)
+=======
+        float _xPos = -xPos;
+        for (var _i = 0; _i < 3; ++_i)
+>>>>>>> Stashed changes
         {
             if (randomRobotsPos[_i].GetComponent<Drag>().isPlaced)
             {
                 randomRobotsPos[_i].GetComponent<RobotMovement>().speed = platformSpeed;
-                randomRobotsPos[_i] = Instantiate(randomRobotsType[Random.Range(0, 3)], new Vector3(_xPos, yPos, 1), Quaternion.identity);
+                int botType = Random.Range(0, 3);
+                if (botType == 0) {
+                    randomRobotsPos[_i] = Instantiate(randomRobotsType[botType], new Vector3(_xPos, yPos - 18, 1), Quaternion.identity);
+                }else{
+                    randomRobotsPos[_i] = Instantiate(randomRobotsType[botType], new Vector3(_xPos, yPos, 1), Quaternion.identity);
+                }
             }
             ++_i;
             _xPos += xPos;
