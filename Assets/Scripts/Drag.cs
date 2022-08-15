@@ -25,6 +25,11 @@ public class Drag : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GameObject.FindWithTag("GameController").GetComponent<ControlGeneration>().started == false)
+        {
+            gameObject.GetComponent<Renderer>().material.color = Color.clear;
+        }
+
         if (isPlaced == true)
         {
             gameObject.layer = 0;

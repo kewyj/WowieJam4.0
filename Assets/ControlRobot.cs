@@ -27,14 +27,16 @@ public class ControlRobot : MonoBehaviour
     {
         if (GameObject.Find("MenuManager").GetComponent<MenuManager>().paused) return;
 
+        var _i = 0;
         var _xPos = -xPos;
-        for (var _i = 0; _i < 3; ++_i)
+        foreach (var obj in randomRobotsType)
         {
             if (randomRobotsPos[_i].GetComponent<Drag>().isPlaced)
             {
                 randomRobotsPos[_i].GetComponent<RobotMovement>().speed = platformSpeed;
                 randomRobotsPos[_i] = Instantiate(randomRobotsType[Random.Range(0, 3)], new Vector3(_xPos, yPos, 1), Quaternion.identity);
             }
+            ++_i;
             _xPos += xPos;
         }
     }
